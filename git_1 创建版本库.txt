@@ -1,0 +1,24 @@
+之前也看过一遍廖老师的Git教程，可惜那时候没有做笔记，许多命令早已忘光，今天打算重温一遍，顺便记下一些命令，以便日后自己查看：
+
+安装Git完git后，需要最后一步的设置，在命令行输入：
+$ git config --global user.name "你的名字"
+$ git config --global user.email "你的邮箱"
+其中的git config命令的--global参数，用了这个参数，表示电脑上的所有Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。
+
+/* 创建版本库 */
+$ mkdir learngit
+$ cd learngit
+$ pwd	//pwd命令用于显示当前目录
+
+$ git init	//把当前目录编程Git可以管理的仓库，生成一个.git文件
+$ ls -ah	//可以看见隐藏的文件
+
+// 把一个文件放到Git仓库只需要两步
+$ git add readme.txt	//使用git add告诉Git，把文件添加到仓库
+$ git add file1.txt file2.txt	//添加多个文件可以用空格隔开
+
+$ git commit -m "注释"	//使用git commit告诉Git，把文件提交到仓库
+
+
+
+

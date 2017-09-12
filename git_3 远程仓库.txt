@@ -1,0 +1,13 @@
+/* 远程仓库 */
+$ ssh-keygen -t rsa -C "email地址"	//创建SSH Key，将id_rsa.pub粘贴到github
+
+/* 添加远程库 */
+$ git remote add origin git@github.com:chenhaoshuo/learngit.git		//本地关联远程库
+
+$ git push -u origin master		//git push命令，实际上是把当前分支master推到远程。-u参数，Git不但会把本地的master分支内容推送到远程新的master，还会把本地的master分支和远程的master分支关联起来
+
+$ git push origin master		//以后的本地提交
+
+/* 从远程库克隆 */
+$ git clone git@github.com:chenhaoshuo/gitskills.git	//远程库准备好之后，用git clone克隆一个本地库
+//还可以用https://github.com/michaelliao/gitskills.git这样的地址

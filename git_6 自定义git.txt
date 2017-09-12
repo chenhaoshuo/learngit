@@ -1,0 +1,31 @@
+/* 自定义Git */
+$ git config --global color.ui true		//让Git显示颜色
+
+/* 忽略特殊文件 */
+在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
+
+$ git add -f "文件名"		//强制把文件添加到Git
+
+$ git check-ignore -v "文件名"		//看看是哪个规则写错了
+
+/* 配置别名 */
+$ git config --global alias.st status	//用st表示status
+$ git config --global alias.co checkout
+$ git config --global alias.ci commit
+$ git config --global alias.br branch
+
+$ git reset HEAD file		//可以吧暂存区的修改撤掉 unstage
+$ git config --global alias.unstage 'reset HEAD'		//用unstage表示reset HEAD
+
+$ git config --global alias.last 'log -1'	//配置git last显示最后一次提交信息
+
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+/* 配置文件 */
+.git/config
+
+
+
+
+
+

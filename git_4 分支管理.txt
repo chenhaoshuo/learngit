@@ -1,0 +1,66 @@
+/* 分支管理 */
+//Git鼓励大量使用分支，因为创建、合并和删除分支非常快，这和直接在master分支上工作效果是一样的，但过程更安全。
+
+/* 创建与合并分支 */
+$ git checkout -b dev		//git checkout命令加上-b参数表示创建并切换，相当于以下两条命令
+
+$ git branch dev	
+$ git checkout dev
+
+$ git branch		//查看当前分支
+
+$ git checkout master		//当dev分支的工作完成之后，我们就可以切换回master分支
+
+$ git merge dev		//合并指定分支到当前分支
+
+$ git branch -d dev	//删除dev分支
+
+/* 解决冲突 */
+//当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
+$ git log --graph --pretty=oneline --abbrev-commit	//git log --graph命令可以查看分支合并图
+
+/* 分支管理策略 */
+$ git merge --no-ff -m "merge with no-ff" dev		//禁用Fast forward，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息
+
+/* bug分支 */
+//修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除
+$ git stash		//可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+
+$ git checkout master	//确定在哪个分支上修复bug
+$ git checkout -b issue-101		//从master创建临时分支
+
+//修复完成之后，切换到master分支，并完成合并，最后删除issue-101分支
+$ git checkout master
+$ git merge --no-ff -m "merged bug fix 101" issue-101
+$ git branch -d issue-101
+
+$ git stash list	//查看保存的状态
+
+//恢复现场的两种方法
+$ git stash apply
+$ git stash drop
+
+$ git stash pop		//恢复的同时把stash内容也删了
+
+/* Feature分支 */
+//开发一个新feature，最好新建一个分支；
+$ git branch -D <name> 	//强行删除
+
+/* 多人合作 */
+$ git remote		//查看远程库的信息
+$ git remote -v		//显示更详细的信息
+
+/* 推送分支 */
+$ git push origin master	//master分支时主分支，因此要时刻与远程同步
+$ git push origin dev		//dev分支时开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步
+
+/* 抓取分支 */
+$ git checkout -b dev origin/dev	//创建远程origin的dev分支到本地
+
+$ git branch --set-upstream branch-name origin/branch-name	//建立本地分支和远程分支的关联
+
+$ git pull		//如果有冲突，要先解决冲突
+
+
+
+
